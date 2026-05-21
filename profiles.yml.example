@@ -1,0 +1,27 @@
+# dbt connection profile for Snowflake
+#
+# Copy this file to ~/.dbt/profiles.yml and fill in YOUR values.
+# Do NOT commit the filled-in version — it contains your private key path.
+#
+# The profile name below ("flower_shop") must match the `profile:`
+# value in dbt_project.yml exactly.
+
+flower_shop:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      threads: 4
+      # Provided by your instructor — format is ORG-ACCOUNT (e.g. SFEDU02-RYB01601)
+      account: ORG-ACCOUNT
+
+      user: YOUR_SNOWFLAKE_USERNAME     # e.g. SPARROW
+      role: TRAINING_ROLE
+      database: FLOWER_SHOP_DB
+      schema: dbt_YOUR_USERNAME         # e.g. dbt_SPARROW — this is YOUR personal dev schema
+      warehouse: ANIMAL_TASK_WH
+
+      # Path to your PRIVATE key file (not the .pub file)
+      # Mac:   /Users/your-username/.ssh/dbt_key.p8
+      # Linux: /home/your-username/.ssh/dbt_key.p8
+      private_key_path: C:/Users/your-username/.ssh/dbt_key.p8

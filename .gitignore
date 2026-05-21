@@ -1,0 +1,8 @@
+.env
+profiles.yml
+target/
+dbt_packages/
+logs/
+resources.md
+.user.yml
+move/

@@ -1,0 +1,62 @@
+version: 2
+
+sources:
+  - name: moms_flower_shop
+    database: FLOWER_SHOP_DB
+    schema: "{{ target.schema }}"
+    tables:
+      - name: raw_flower_orders
+        description: Raw flower order data
+        columns:
+          - name: order_id
+            data_tests: [unique, not_null]
+          - name: customer_id
+          - name: order_time
+          - name: order_value
+          - name: flowers_amount
+          - name: vase_amount
+          - name: chocolate_amount
+          - name: delivery_id
+          - name: platform
+
+      - name: raw_customers
+        description: Raw customer data
+        columns:
+          - name: id
+            data_tests: [unique, not_null]
+          - name: first_name
+          - name: last_name
+          - name: email
+            data_tests: [unique]
+          - name: gender
+          - name: address_id
+
+      - name: raw_addresses
+        description: Customer address data
+        columns:
+          - name: address_id
+            data_tests: [unique, not_null]
+          - name: full_address
+          - name: state
+          - name: city
+
+      - name: raw_website_events
+        description: Website and app interaction events
+        columns:
+          - name: event_id
+            data_tests: [unique, not_null]
+          - name: customer_id
+          - name: event_time
+          - name: event_name
+          - name: platform
+
+      - name: raw_marketing_campaign_events
+        description: Marketing campaign spend events
+        columns:
+          - name: event_id
+            data_tests: [unique, not_null]
+          - name: campaign_id
+          - name: campaign_name
+          - name: c_name
+          - name: event_time
+          - name: cost
